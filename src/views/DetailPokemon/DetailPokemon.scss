@@ -1,0 +1,51 @@
+.detail {
+  &__backgroundImg {
+    background-color: $color-gray-2;
+  }
+  .v-card__title {
+    font-size: 2.25rem;
+    font-family: "BundayClean-Bold";
+  }
+
+  h2 {
+    color: $color-gray-1;
+    margin-left: 10px;
+  }
+  h5 {
+    color: $color-black;
+    font-family: "BundayClean-SeBoldUp";
+    font-size: 1rem;
+  }
+
+  &__version {
+    h5 {
+      margin-right: 10px;
+    }
+
+    .v-image {
+        margin-right: 2px;
+    }
+
+    &__select {
+      border-radius: 50%;
+      margin-right: 15px;
+      border: 5px solid $color-blue-2;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  p {
+    margin-bottom: 16px;
+    color: $color-black;
+    font-family: "BundayClean-SeBoldUp";
+    font-size: 1rem;
+  }
+  .v-card__title + .v-card__subtitle,
+  .v-card__title + .v-card__text {
+    padding-top: 16px;
+  }
+}
