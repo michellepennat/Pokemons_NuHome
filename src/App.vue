@@ -1,28 +1,25 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app>
+    <v-app-bar color="blue" app>
+      <h1>Pokemons</h1>
+    </v-app-bar>
+    <v-main>
+      <list-pokemon />
+      <detail-pokemon />
+    </v-main>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import DetailPokemon from "./views/DetailPokemon/DetailPokemon";
+import ListPokemon from "./views/ListPokemon/ListPokemon";
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
-</script>
+  name: "App",
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+  components: { ListPokemon, DetailPokemon },
+
+  data: () => ({
+    //
+  }),
+};
+</script>

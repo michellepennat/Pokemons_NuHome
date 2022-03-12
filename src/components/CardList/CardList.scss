@@ -1,0 +1,16 @@
+.cardList {
+  &__backgroundImg {
+    background-color: $color-gray-2;
+  }
+  p {
+    margin-bottom: 0;
+  }
+  .v-card__title {
+    padding: 0 16px;
+  }
+
+  .v-card__title + .v-card__subtitle,
+  .v-card__title + .v-card__text {
+    padding-top: 6px;
+  }
+}
