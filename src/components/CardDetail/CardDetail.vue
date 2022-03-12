@@ -1,8 +1,7 @@
 <template>
   <v-card
     color="#0ca0ce"
-    :loading="loading"
-    class="mx-auto my-2 py-1 px-2 cardDetail"
+    class="mx-4 my-2 py-1 px-2 cardDetail"
     max-width="374"
   >
     <v-card-text>
