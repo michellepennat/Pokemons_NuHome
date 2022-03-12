@@ -4,4 +4,15 @@
 
 h1 {
   color: $color-white;
+  font-family: "BundayClean-Bold";
+}
+
+.v-chip.v-size--default {
+  margin-right: 5px;
+  width: 130px;
+  height: 25px;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  font-family: 'BundayClean-SeBoldUp';
 }

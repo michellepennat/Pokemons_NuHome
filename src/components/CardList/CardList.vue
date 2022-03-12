@@ -5,12 +5,11 @@
         src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png"
       ></v-img>
     </div>
-    <v-card-text>
-      <p class="text-subtitle-1">No. 001</p>
-    </v-card-text>
+    <p>No. °001</p>
     <v-card-title>Bulbasaur</v-card-title>
     <v-card-text>
-      <chips-custom />
+      <chips-custom name="Planta" color="#9dcb4f" textColor="#000000" />
+      <chips-custom name="Veneno" color="#b97fc9" textColor="#ffffff" />
     </v-card-text>
   </v-card>
 </template>
