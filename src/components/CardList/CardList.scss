@@ -1,8 +1,7 @@
 .cardList {
   &__backgroundImg {
     background-color: $color-gray-2;
-    width: 374px;
-
+    width: 100% ;
     .v-responsive {
       height: 374px;
     }

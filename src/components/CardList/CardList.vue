@@ -1,8 +1,8 @@
 <template>
   <router-link :to="`detail/${id_element}`" class="text-decoration-none">
-    <v-card class="my-12 cardList" max-width="374">
+    <v-card class="my-10 cardList" max-width="374">
       <div class="cardList__backgroundImg">
-        <v-img max-height="374px"  :src="image"></v-img>
+        <v-img :src="image"></v-img>
       </div>
       <p>{{ `No. °00${id_element}` }}</p>
       <v-card-title>{{ name }}</v-card-title>
