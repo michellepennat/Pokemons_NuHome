@@ -3,7 +3,7 @@
     <v-app-bar color="#0ca0ce" app>
       <v-row no-gutters class="mx-3" align="center" justify="space-between">
         <router-link to="/" class="text-decoration-none">
-          <h1>Pokemons</h1>
+          <h1 class="title_page">Pokemons</h1>
         </router-link>
         <div no-gutters class="d-flex flex-row">
           <modal-pokemon
