@@ -35,8 +35,8 @@
               message
             }}</v-alert>
             <v-alert type="error" v-if="error !== ''">{{ error }}</v-alert>
+            <small class="py-">*Indica los datos obligatorios</small>
           </v-container>
-          <small>*Indica los datos obligatorios</small>
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
