@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-dialog max-width="600px">
+    <v-dialog v-model="dialog" max-width="600px">
       <template v-slot:activator="{ on, attrs }">
         <v-btn v-if="!isEditing" fab icon v-bind="attrs" v-on="on"
           ><v-icon color="white" large> mdi-plus-circle </v-icon></v-btn
@@ -24,9 +24,17 @@
                 ></v-text-field>
               </v-col>
               <v-col cols="12">
-                <v-text-field label="Descripción*" required></v-text-field>
+                <v-text-field
+                  v-model="description"
+                  label="Descripción*"
+                  required
+                ></v-text-field>
               </v-col>
             </v-row>
+            <v-alert type="success" v-if="message !== ''">{{
+              message
+            }}</v-alert>
+            <v-alert type="error" v-if="error !== ''">{{ error }}</v-alert>
           </v-container>
           <small>*Indica los datos obligatorios</small>
         </v-card-text>
@@ -35,9 +43,7 @@
           <v-btn color="red darken-1" text @click="dialog = false">
             Cancelar
           </v-btn>
-          <v-btn color="green darken-1" text @click="dialog = false">
-            Guardar
-          </v-btn>
+          <v-btn color="green darken-1" text @click="save()"> Guardar </v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -45,17 +51,23 @@
 </template>
 
 <script>
+import ApiPokemon from "../../common/Api/Api";
 export default {
   name: "ModalPokemon",
   data() {
     return {
       name: "",
       description: "",
+      message: "",
+      error: "",
+      dialog: false,
     };
   },
   props: {
     isEditing: Boolean,
+    id: Number,
     pokemonName: String,
+    pokemonDesc: String,
   },
   components: {},
   watch: {
@@ -66,6 +78,72 @@ export default {
       },
       deep: true,
       immediate: true,
+    },
+    pokemonDesc: {
+      handler: function (newVal) {
+        console.log(newVal);
+        this.description = newVal;
+      },
+      deep: true,
+      immediate: true,
+    },
+  },
+  methods: {
+    save() {
+      if (this.name === "" || this.description === "") {
+        this.error = "Todos los datos son requeridos";
+        this.message = "";
+        return;
+      }
+      if (this.isEditing) {
+        ApiPokemon.put(
+          {
+            id_pokedex: 2,
+            name: this.name,
+            id_element: 2,
+            image:
+              "https://assets.pokemon.com/assets/cms2/img/pokedex/full/003.png",
+            description: this.description,
+          },
+          `update/${this.id}`,
+          async (functions) => {
+            const response = await functions;
+            console.log(response);
+            if (response.data && response.data.id_pokedex !== null) {
+              this.message = "El pokemon se ha guardado correctamente";
+              this.error = "";
+            }
+          },
+          async () => {
+            this.error = "Hubo un error al crear la información";
+            this.message = "";
+          }
+        );
+      } else {
+        ApiPokemon.post(
+          {
+            id_pokedex: 2,
+            name: this.name,
+            id_element: 2,
+            image:
+              "https://assets.pokemon.com/assets/cms2/img/pokedex/full/003.png",
+            description: this.description,
+          },
+          "create/",
+          async (functions) => {
+            const response = await functions;
+            console.log(response);
+            if (response.data && response.data.id_pokedex !== null) {
+              this.message = "El pokemon se ha guardado correctamente";
+              this.error = "";
+            }
+          },
+          async () => {
+            this.error = "Hubo un error al crear la información";
+            this.message = "";
+          }
+        );
+      }
     },
   },
 };

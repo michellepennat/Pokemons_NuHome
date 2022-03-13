@@ -1,5 +1,5 @@
 <template>
-  <router-link to="detail/1" class="text-decoration-none">
+  <router-link :to="`detail/${id_element}`" class="text-decoration-none">
     <v-card class="my-12 cardList" max-width="374">
       <div class="cardList__backgroundImg">
         <v-img max-height="374px"  :src="image"></v-img>

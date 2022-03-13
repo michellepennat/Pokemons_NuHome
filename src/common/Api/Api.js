@@ -53,4 +53,18 @@ export default {
         errorCallBack(e);
       });
   },
+  async delete(endPoint, callBack, errorCallBack) {
+    await axios
+      .delete("https://pokemon-inhom.herokuapp.com/api/pokemon/" + endPoint, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+      .then((r) => {
+        callBack(r);
+      })
+      .catch((e) => {
+        errorCallBack(e);
+      });
+  },
 };

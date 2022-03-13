@@ -56,13 +56,13 @@ export default {
   props: {
     pokemonName: String,
     detailPokemon: {
-      default: {
+      default: () => ({
         name: "",
         id_element: 0,
         description: "",
         image: "",
         element_english: "",
-      },
+      }),
     },
   },
   components: { ChipsCustom, CardDetail },

@@ -7,10 +7,15 @@
         </router-link>
         <div no-gutters class="d-flex flex-row">
           <modal-pokemon
-            :pokemonName="pokemonName"
+            :id="detailPokemon.id_pokedex"
+            :pokemonName="detailPokemon.name"
+            :pokemonDesc="detailPokemon.description"
             :isEditing="visibleDetailButtons"
           />
-          <modal-delete v-if="visibleDetailButtons" />
+          <modal-delete
+            v-if="visibleDetailButtons"
+            :id="detailPokemon.id_pokedex"
+          />
         </div>
       </v-row>
     </v-app-bar>
