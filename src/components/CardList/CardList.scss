@@ -1,12 +1,17 @@
 .cardList {
   &__backgroundImg {
     background-color: $color-gray-2;
+    width: 374px;
+
+    .v-responsive {
+      height: 374px;
+    }
   }
   p {
     margin-bottom: 0;
     padding: 5px 16px;
     color: $color-gray-1;
-    font-family: 'BundayClean-SeBoldUp';
+    font-family: "BundayClean-SeBoldUp";
   }
   .v-card__title {
     padding: 10px 15px 0;

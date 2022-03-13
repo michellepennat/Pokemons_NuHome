@@ -2,20 +2,17 @@
   <v-container>
     <v-card class="mx-auto my-12 detail">
       <v-card-title
-        >{{ pokemonName }}
-        <h2>No. °001</h2></v-card-title
+        >{{ detailPokemon.name }}
+        <h2>{{ `No. °00${detailPokemon.id_element}` }}</h2></v-card-title
       >
       <v-row no-gutters>
         <div class="detail__backgroundImg">
-          <v-img
-            src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png"
-          ></v-img>
+          <v-img :src="detailPokemon.image"></v-img>
         </div>
         <v-col>
           <v-card-text>
             <p>
-              Prefiere las cosas calientes. Dicen que cuando llueve le sale
-              vapor de la punta de cola.
+              {{ detailPokemon.description }}
             </p>
             <v-row no-gutters align="center" class="detail__version">
               <h5>Versiones:</h5>
@@ -36,8 +33,11 @@
           <card-detail />
           <v-card-text>
             <h5 class="my-4">Tipo</h5>
-            <chips-custom name="Planta" color="#9dcb4f" textColor="#000000" />
-            <chips-custom name="Veneno" color="#b97fc9" textColor="#ffffff" />
+            <chips-custom
+              :name="detailPokemon.element_english"
+              color="#9dcb4f"
+              textColor="#000000"
+            />
           </v-card-text>
         </v-col>
       </v-row>
@@ -55,6 +55,15 @@ export default {
   },
   props: {
     pokemonName: String,
+    detailPokemon: {
+      default: {
+        name: "",
+        id_element: 0,
+        description: "",
+        image: "",
+        element_english: "",
+      },
+    },
   },
   components: { ChipsCustom, CardDetail },
 };
